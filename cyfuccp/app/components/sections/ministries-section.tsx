@@ -1,0 +1,3 @@
+import { ministries } from "../../data/site-content";
+import { SectionHeading, Photo, iconFor } from "../ui";
+export function MinistriesSection() { return <section className="section ministries" id="ministries"><SectionHeading eyebrow="OUR MINISTRIES" title="Ways We Grow and Serve" detail="Different gifts, one purpose — to know Christ and make Him known."/><div className="ministry-grid">{ministries.map((item) => { const Icon = iconFor(item.icon); return <article className="ministry-card" key={item.title}><Photo src={item.image} alt={item.title}/><div className="ministry-body"><span className="icon-disc"><Icon size={19}/></span><div><h3>{item.title}</h3><p>{item.detail}</p></div></div></article>; })}</div></section>; }

@@ -1,0 +1,2 @@
+import { Quote } from "../ui";
+export function TestimonialSection() { return <section className="section testimonial"><div><span className="eyebrow">TESTIMONIALS</span><h2>What Our Youth Say</h2></div><blockquote><Quote size={28}/><p>CYF is my second family. I found real friends, a deeper faith, and a place where I can be myself and grow in Christ.</p><cite>— CYF Member</cite></blockquote><div className="scripture">&quot;Be the light<br/>in your generation.&quot;<small>— Matthew 5:16</small></div></section>; }
