@@ -721,6 +721,16 @@ body { overflow-x: hidden; font-size: 14px; }
   .officers .section { padding-top:22px; padding-bottom:34px; }
 }
 
+/* Slightly larger three-card Events row on mobile only. */
+@media(max-width:620px){
+  .events .event-cards-row { gap:7px; }
+  .events .event-cards-row .event-card > .photo { height:70px; }
+  .events .event-cards-row .event-card > div { padding:8px; }
+  .events .event-cards-row .event-card h3 { font-size:9px; line-height:1.2; }
+  .events .event-cards-row .event-card p { font-size:8px; line-height:1.25; }
+  .events .event-cards-row .event-card svg { width:10px; height:10px; }
+}
+
 /* Hold and drag any officer card to pause and manually browse the track. */
 .officer-grid { cursor:grab; touch-action:pan-y; user-select:none; }
 .officer-grid:active { cursor:grabbing; }
@@ -774,6 +784,28 @@ body { overflow-x: hidden; font-size: 14px; }
   cursor:pointer;
 }
 .gallery-close:hover { background:#ed3d66; border-color:#ed3d66; }
+
+.socials { display:flex; align-items:center; }
+.facebook-link {
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  color:#fff;
+  background:#1877f2;
+  font:700 25px Arial,sans-serif;
+  line-height:1;
+}
+.facebook-link:hover { background:#0d5dcc; transform:scale(1.06); }
+
+@media(min-width:768px){
+  .main-nav {
+    gap:28px;
+    font-size:13px;
+  }
+  .main-nav a:first-child { padding-top:25px; padding-bottom:21px; }
+}
 
 /* Fluid desktop hero for wide monitors. */
 @media(min-width:1200px){

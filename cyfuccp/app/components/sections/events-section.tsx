@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarDays, MapPin, SectionHeading, Photo } from "../ui";
+import { CalendarDays, MapPin, SectionHeading, Photo } from "../ui";
 import { imageUrls } from "../../data/site-content";
 
 const upcomingEvents = [
@@ -22,6 +22,5 @@ export function EventsSection() {
       </article>)}
     </div>
     </div>
-    <a href="#events" className="text-link align-right">View All Events <ArrowRight size={15} /></a>
   </section>;
 }
