@@ -980,6 +980,334 @@ body { overflow-x: hidden; font-size: 14px; }
   }
 }
 
+/* Final header alignment and brand sizing. */
+.brand strong { font-size:18px; }
+.brand small { font-size:12px; }
+
+@media(max-width:620px){
+  .brand strong { font-size:13px; }
+  .brand small { font-size:10px; }
+}
+
+/* Typography and card spacing pass for About and Ministries. */
+.section .eyebrow {
+  color:#d92e52;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.75px;
+}
+.section-heading > p { font-size:13px; }
+.about-section { grid-template-columns:minmax(300px,.9fr) minmax(0,1.35fr); gap:40px; }
+.about-copy p { max-width:500px; font-size:15px; line-height:1.55; }
+.value-grid { gap:16px; }
+.value-card { min-height:174px; padding:22px 20px 24px; }
+.value-card .icon-disc { width:34px; height:34px; margin-bottom:12px; box-shadow:none; }
+.value-card .icon-disc svg { width:18px; height:18px; }
+.value-card h3 { font-size:16px; margin-bottom:8px; }
+.value-card p { max-width:220px; font-size:13px; line-height:1.45; }
+.ministry-grid { gap:18px; }
+.ministry-card { display:flex; flex-direction:column; }
+.ministry-card > .photo { height:auto; aspect-ratio:16 / 9; flex:none; }
+.ministry-body { flex:1; min-height:96px; gap:10px; padding:14px; align-items:flex-start; }
+.ministry-body .icon-disc { width:32px; height:32px; }
+.ministry-body .icon-disc svg { width:17px; height:17px; }
+.ministry-body h3 { color:var(--ink); font-size:14px; line-height:1.2; margin:1px 0 6px; }
+.ministry-body p { color:#4b5065; font-size:13px; line-height:1.4; }
+
+@media(max-width:900px){
+  .about-section { grid-template-columns:1fr; gap:24px; }
+  .value-card { min-height:165px; }
+}
+
+@media(max-width:620px){
+  .section .eyebrow { font-size:11px; }
+  .about-copy p { font-size:15px; }
+  .value-grid { gap:12px; }
+  .value-card { min-height:150px; padding:18px 14px 20px; }
+  .value-card p { font-size:12px; }
+  .ministry-grid { gap:10px; }
+  .ministry-body { min-height:94px; padding:10px; gap:7px; }
+  .ministry-body h3 { font-size:12px; }
+  .ministry-body p { font-size:11px; }
+}
+
+/* Final readability and rhythm pass for Events, Gallery, Testimonials, and Visit. */
+.section { padding-block:64px; }
+.featured-event { text-shadow:0 1px 3px rgba(0,0,0,.45); }
+.featured-event p,
+.featured-event small { font-size:12px; }
+.event-card { min-height:190px; }
+.event-card > .photo { height:auto; aspect-ratio:16 / 9; }
+.event-card > div { padding:12px 13px; }
+.event-card h3 { font-size:13px; line-height:1.25; }
+.event-card p { font-size:11px; line-height:1.55; }
+
+@media(min-width:901px){
+  .gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  .gallery-grid .photo,
+  .gallery-grid .photo:first-child,
+  .gallery-grid .photo:nth-child(3) { height:180px; }
+  .testimonial { grid-template-columns:1fr 1.6fr 1fr; gap:36px; padding-block:64px; }
+  .testimonial blockquote { padding:22px 34px; }
+  .testimonial blockquote p { font-size:15px; line-height:1.55; }
+  .testimonial cite { font-size:12px; }
+  .visit-grid { grid-template-columns:1.1fr 1fr 1.35fr; gap:28px; }
+  .schedule-card { min-height:230px; padding:22px; }
+  .schedule-card h3 { font-size:16px; }
+  .schedule-card div { font-size:13px; line-height:1.4; }
+  .map-card { min-height:230px; }
+}
+
+@media(min-width:621px) and (max-width:900px){
+  .gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .gallery-grid .photo,
+  .gallery-grid .photo:first-child,
+  .gallery-grid .photo:nth-child(3) { height:145px; }
+}
+
+@media(max-width:620px){
+  .section { padding-block:44px; }
+  .featured-event p,
+  .featured-event small { font-size:11px; }
+  .event-card { min-height:170px; }
+  .event-card > .photo { aspect-ratio:4 / 3; }
+  .event-card > div { padding:9px; }
+  .event-card h3 { font-size:10px; }
+  .event-card p { font-size:9px; line-height:1.4; }
+  .testimonial blockquote p { font-size:14px; line-height:1.5; }
+  .schedule-card { min-height:205px; }
+  .schedule-card div { font-size:12px; }
+  .map-card { min-height:220px; }
+}
+
+/* Reference layout pass for non-hero sections. */
+.section {
+  padding-top:32px;
+  padding-bottom:32px;
+  padding-left:max(24px,calc((100vw - 1280px) / 2 + 24px));
+  padding-right:max(24px,calc((100vw - 1280px) / 2 + 24px));
+}
+.section-heading { margin-bottom:16px; }
+.section-heading h2 { font-size:27px; }
+.section-heading > p { font-size:12px; }
+.about-section { grid-template-columns:minmax(300px,.85fr) minmax(0,1.45fr); gap:34px; }
+.value-grid { gap:14px; }
+.value-card { min-height:154px; padding:18px 16px; }
+.value-card .icon-disc { width:38px; height:38px; margin-bottom:9px; }
+.value-card h3 { font-size:15px; }
+.value-card p { font-size:12px; line-height:1.35; }
+.ministries { background:#fff7f9; }
+.ministry-grid { gap:12px; }
+.ministry-card > .photo { aspect-ratio:16 / 8.7; }
+.ministry-body { min-height:78px; padding:11px; }
+.ministry-body h3 { font-size:13px; }
+.ministry-body p { font-size:11px; line-height:1.3; }
+.officers { background:#fff; }
+.officer-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; overflow:visible; }
+.officer-card { min-width:0; min-height:190px; padding:7px 7px 12px; }
+.officer-card > .photo { aspect-ratio:4 / 3; height:auto; }
+.officer-card span { font-size:11px; margin-top:8px; }
+.officer-card strong { font-size:12px; margin-top:4px; }
+.officer-quote, .officer-controls, .officers-button { display:none; }
+.events { background:#fff7f9; }
+.events .event-grid { display:grid; grid-template-columns:1.3fr repeat(3,minmax(0,1fr)); gap:12px; }
+.events .event-cards-row { display:contents; }
+.featured-event { min-height:155px; }
+.event-card { min-height:155px; }
+.event-card > .photo { aspect-ratio:16 / 8.5; }
+.event-card > div { padding:10px; }
+.event-card h3 { font-size:12px; }
+.event-card p { font-size:10px; line-height:1.4; }
+.gallery { background:#fff; }
+.gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.gallery-grid .photo,
+.gallery-grid .photo:first-child,
+.gallery-grid .photo:nth-child(3) { height:150px; }
+.testimonial { background:#fff7f9; padding-top:32px; padding-bottom:32px; }
+.testimonial blockquote { padding:16px 28px; }
+.testimonial blockquote p { font-size:14px; line-height:1.45; }
+.visit { background:#fff; }
+.visit-grid { grid-template-columns:1.15fr 1fr 1.3fr; gap:24px; }
+.schedule-card { min-height:190px; padding:16px; }
+.schedule-card h3 { font-size:14px; }
+.schedule-card div { font-size:11px; padding:8px 0; }
+.map-card { min-height:220px; }
+.site-footer { padding-top:20px; padding-bottom:20px; }
+
+@media(max-width:900px){
+  .section { padding-left:28px; padding-right:28px; }
+  .about-section { grid-template-columns:1fr; gap:22px; }
+  .officer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .events .event-grid { grid-template-columns:1fr 1fr; }
+  .events .featured-event { grid-column:1 / -1; }
+  .events .event-cards-row { display:contents; }
+  .visit-grid { grid-template-columns:1fr 1fr; }
+  .visit-copy { grid-column:1 / -1; }
+}
+
+@media(max-width:620px){
+  .section { padding:28px 20px; }
+  .section-heading h2 { font-size:24px; }
+  .officer-grid { grid-template-columns:1fr; gap:12px; }
+  .officer-card { min-height:0; }
+  .events .event-grid { display:block; }
+  .events .featured-event { margin-bottom:10px; }
+  .events .event-cards-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+  .events .event-card { min-height:150px; }
+  .events .event-card > .photo { aspect-ratio:4 / 3; }
+  .events .event-card > div { padding:7px; }
+  .events .event-card h3 { font-size:9px; }
+  .events .event-card p { font-size:8px; }
+  .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .gallery-grid .photo,
+  .gallery-grid .photo:first-child,
+  .gallery-grid .photo:nth-child(3) { height:110px; }
+  .visit-grid { grid-template-columns:1fr; }
+  .visit-copy { grid-column:auto; }
+}
+
+/* Widen the shared non-hero content area to match the reference layout. */
+@media(min-width:901px){
+  .site-header,
+  .section,
+  .site-footer {
+    padding-left:max(44px,calc((100vw - 1560px) / 2 + 24px));
+    padding-right:max(44px,calc((100vw - 1560px) / 2 + 24px));
+  }
+  .gallery-grid { grid-template-columns:repeat(5,minmax(0,1fr)); }
+  .gallery-grid .photo,
+  .gallery-grid .photo:first-child,
+  .gallery-grid .photo:nth-child(3) { height:140px; }
+}
+
+/* Preserve the officers carousel behavior while showing four cards at once. */
+.officer-grid {
+  display:flex;
+  grid-template-columns:none;
+  gap:14px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding-bottom:8px;
+  scroll-behavior:auto;
+  scrollbar-width:none;
+  cursor:grab;
+  touch-action:pan-y;
+  user-select:none;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.officer-grid::-webkit-scrollbar { display:none; }
+.officer-grid:active { cursor:grabbing; }
+.officer-card {
+  flex:0 0 calc((100% - 42px) / 4);
+  min-width:0;
+}
+
+@media(max-width:900px){
+  .officer-card { flex-basis:calc((100% - 14px) / 2); }
+}
+
+@media(max-width:620px){
+  .officer-card { flex-basis:100%; }
+}
+
+/* Events announcement layout matching the reference. */
+@media(min-width:901px){
+  .events { background:#fff7f9; }
+  .events .section-heading { align-items:flex-end; margin-bottom:18px; }
+  .events .section-heading h2 { font-size:30px; }
+  .events .section-heading > p { font-size:13px; margin-bottom:4px; }
+  .events .event-grid { grid-template-columns:1.3fr repeat(3,minmax(0,1fr)); gap:14px; align-items:stretch; }
+  .events .featured-event,
+  .events .event-card { height:281px; min-height:0; }
+  .events .featured-event { padding:16px 18px; border-radius:8px; }
+  .events .featured-event h3 { font-size:25px; }
+  .events .featured-event p,
+  .events .featured-event small { font-size:12px; line-height:1.5; }
+  .events .event-card { display:flex; flex-direction:column; }
+  .events .event-card > .photo { height:217px; aspect-ratio:auto; flex:none; }
+  .events .event-card > div { flex:none; height:64px; padding:11px 12px; }
+  .events .event-card h3 { font-size:14px; margin-bottom:8px; }
+  .events .event-card p { font-size:11px; line-height:1.5; }
+}
+
+/* Events desktop composition: one featured card with three compact rows. */
+@media(min-width:901px){
+  .events .event-grid { grid-template-columns:minmax(0,1.08fr) minmax(0,1fr); gap:14px; }
+  .events .featured-event { height:250px; min-height:0; }
+  .events .event-cards-row {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    height:250px;
+  }
+  .events .event-card {
+    display:grid;
+    grid-template-columns:136px minmax(0,1fr);
+    height:calc((250px - 20px) / 3);
+    min-height:0;
+  }
+  .events .event-card > .photo {
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+  }
+  .events .event-card > div {
+    position:relative;
+    grid-column:2;
+    grid-row:1;
+    height:100%;
+    padding:10px 38px 8px 12px;
+  }
+  .events .event-card h3 { margin:0 0 4px; font-size:13px; }
+  .events .event-card p { font-size:10px; line-height:1.35; }
+  .event-card-arrow {
+    position:absolute;
+    top:50%;
+    right:10px;
+    display:grid;
+    place-items:center;
+    width:24px;
+    height:24px;
+    border:1px solid var(--pink);
+    border-radius:50%;
+    color:var(--pink);
+    transform:translateY(-50%);
+  }
+  .featured-event-link {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:12px;
+    padding:9px 16px;
+    border-radius:999px;
+    color:#fff;
+    background:var(--pink);
+    font-size:11px;
+    font-weight:700;
+  }
+}
+
+/* Officers: consistent image proportions and readable labels. */
+.officer-card { display:flex; flex-direction:column; height:100%; }
+.officer-card > .photo {
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 3;
+  flex:none;
+  object-fit:cover;
+}
+.officer-card span { margin-top:10px; font-size:12px; line-height:1.2; }
+.officer-card strong { margin-top:5px; font-size:13px; line-height:1.25; white-space:normal; overflow:visible; text-overflow:clip; }
+
+@media(max-width:620px){
+  .officer-card > .photo { aspect-ratio:4 / 3; height:auto; }
+  .officer-card span { margin-top:8px; font-size:11px; }
+  .officer-card strong { margin-top:4px; font-size:11px; line-height:1.25; }
+}
+
 /* Final hero readability pass. */
 .hero-final__copy { display:flex; flex-direction:column; }
 .hero-final h1 em { color:inherit; }

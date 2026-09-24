@@ -16,6 +16,8 @@ export function OfficersSection() {
     let dragging = false;
     let startX = 0;
     let startScroll = 0;
+    let pendingScroll = 0;
+    let dragFrame = 0;
     const animate = () => {
       if (!isPausedRef.current && track.scrollWidth > track.clientWidth) {
         track.scrollLeft += 1;
@@ -31,15 +33,29 @@ export function OfficersSection() {
       track.setPointerCapture(event.pointerId);
     };
     const onPointerMove = (event: globalThis.PointerEvent) => {
-      if (dragging) track.scrollLeft = startScroll - (event.clientX - startX);
+      if (!dragging) return;
+      if (event.cancelable) event.preventDefault();
+      pendingScroll = startScroll - (event.clientX - startX);
+      if (!dragFrame) {
+        dragFrame = requestAnimationFrame(() => {
+          track.scrollLeft = pendingScroll;
+          dragFrame = 0;
+        });
+      }
     };
     const onPointerUp = (event: globalThis.PointerEvent) => {
       dragging = false;
       isPausedRef.current = false;
+      if (dragFrame) {
+        cancelAnimationFrame(dragFrame);
+        track.scrollLeft = pendingScroll;
+        dragFrame = 0;
+      }
       if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
     };
+    const pointerMoveOptions: AddEventListenerOptions = { passive: false };
     track.addEventListener("pointerdown", onPointerDown);
-    track.addEventListener("pointermove", onPointerMove);
+    track.addEventListener("pointermove", onPointerMove, pointerMoveOptions);
     track.addEventListener("pointerup", onPointerUp);
     track.addEventListener("pointercancel", onPointerUp);
     const delay = window.setTimeout(animate, 3000);
@@ -47,22 +63,19 @@ export function OfficersSection() {
       window.clearTimeout(delay);
       cancelAnimationFrame(frame);
       track.removeEventListener("pointerdown", onPointerDown);
-      track.removeEventListener("pointermove", onPointerMove);
+      track.removeEventListener("pointermove", onPointerMove, pointerMoveOptions);
       track.removeEventListener("pointerup", onPointerUp);
       track.removeEventListener("pointercancel", onPointerUp);
     };
   }, []);
 
   return <section className="officers" id="officers"><div className="section">
-    <SectionHeading eyebrow="OUR LEADERSHIP" title="CYF Officers 2026–2027" detail="Young leaders, faithful servants, building a brighter tomorrow." />
-    <div className="officer-showcase">
-      <div className="officer-grid" ref={trackRef}>
-        {officers.map(([role, name], index) => <article className="officer-card" key={role}>
-          <Photo src={imageUrls.officers[index]} alt={`${role} - ${name}`} />
-          <span>{role}</span><strong>{name}</strong>
-        </article>)}
-      </div>
-      <aside className="officer-quote">&quot;Called to Lead,<br /><em>Inspired to Serve</em>&quot;<small>1 Peter 4:10</small></aside>
+    <SectionHeading eyebrow="OUR LEADERSHIP" title="CYF Officers 2026-2027" detail="Young leaders, faithful servants, building a brighter tomorrow." />
+    <div className="officer-grid" ref={trackRef}>
+      {officers.map(([role, name], index) => <article className="officer-card" key={role}>
+        <Photo src={imageUrls.officers[index]} alt={`${role} - ${name}`} />
+        <span>{role}</span><strong>{name}</strong>
+      </article>)}
     </div>
   </div></section>;
 }

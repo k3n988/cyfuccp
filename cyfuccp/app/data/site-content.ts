@@ -24,12 +24,12 @@ export const ministries = [
   { title: "Fellowship Activities", detail: "Creating a safe and caring space for friendships and personal growth.", image: imageUrls.fellowship, icon: "users" },
 ];
 export const officers = [
-  ["PASTOR", "Pastor"],
+  ["PASTOR", "Ptr. Franklin Obligfar"],
   ["PRESIDENT", "Lovelyn Obligiar"],
   ["VICE PRESIDENT", "Marethony Gail Escuadra"],
   ["SECRETARY", "Rea Joy Cabitnoy"],
   ["TREASURER", "Jennieve Endico"],
   ["AUDITOR", "Auditor"],
-  ["PIO", "PIO"],
-  ["PIO 1", "PIO 1"],
+  ["PIO", "Khenje Ternal"],
+  ["PIO 1", "Wilbert Mijares"],
 ];
