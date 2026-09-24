@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Heart, Music2, Users } from "../ui";
+import { ArrowRight, CalendarDays, Users } from "../ui";
 import { imageUrls } from "../../data/site-content";
 
 export function Hero() {
@@ -14,11 +14,6 @@ export function Hero() {
           <a href="#events" className="button button-outline"><CalendarDays size={22} /> View Events</a>
         </div>
         <blockquote>&quot;For where two or three gather in my name,<br />there am I with them.&quot;<span>— Matthew 18:20</span></blockquote>
-        <div className="hero-support" aria-label="What we do">
-          <span><Music2 size={16} aria-hidden="true" /> Worship</span>
-          <span><Heart size={16} aria-hidden="true" /> Fellowship</span>
-          <span><CalendarDays size={16} aria-hidden="true" /> Youth Events</span>
-        </div>
       </div>
     </div>
     <div className="hero-final__visual">

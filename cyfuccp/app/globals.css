@@ -979,3 +979,18 @@ body { overflow-x: hidden; font-size: 14px; }
     text-align:center;
   }
 }
+
+/* Final hero readability pass. */
+.hero-final__copy { display:flex; flex-direction:column; }
+.hero-final h1 em { color:inherit; }
+.hero-final blockquote { order:2; margin-top:0; margin-bottom:24px; }
+.hero-final .hero-actions { order:3; }
+.hero-final__visual img { filter:brightness(1.12) contrast(.96) saturate(1.03); }
+.hero-final__visual::after {
+  background:linear-gradient(180deg,rgba(255,248,250,.04),transparent 25%,rgba(24,26,48,.02));
+}
+.hero-support { display:none; }
+
+@media(max-width:620px){
+  .hero-final blockquote { margin-bottom:20px; }
+}
