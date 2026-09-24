@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowRight, Photo, SectionHeading } from "../ui";
+import { Photo, SectionHeading } from "../ui";
 import { imageUrls, officers } from "../../data/site-content";
 
 export function OfficersSection() {
@@ -55,13 +55,14 @@ export function OfficersSection() {
 
   return <section className="officers" id="officers"><div className="section">
     <SectionHeading eyebrow="OUR LEADERSHIP" title="CYF Officers 2026–2027" detail="Young leaders, faithful servants, building a brighter tomorrow." />
-    <div className="officer-grid" ref={trackRef}>
-      {officers.map(([role, name], index) => <article className="officer-card" key={role}>
-        <Photo src={imageUrls.officers[index]} alt={`${role} - ${name}`} />
-        <span>{role}</span><strong>{name}</strong>
-      </article>)}
-      <div className="officer-quote">&quot;Called to Lead,<br /><em>Inspired to Serve</em>&quot;<small>1 Peter 4:10</small></div>
+    <div className="officer-showcase">
+      <div className="officer-grid" ref={trackRef}>
+        {officers.map(([role, name], index) => <article className="officer-card" key={role}>
+          <Photo src={imageUrls.officers[index]} alt={`${role} - ${name}`} />
+          <span>{role}</span><strong>{name}</strong>
+        </article>)}
+      </div>
+      <aside className="officer-quote">&quot;Called to Lead,<br /><em>Inspired to Serve</em>&quot;<small>1 Peter 4:10</small></aside>
     </div>
-    <a className="button button-outline officers-button" href="#officers" onClick={(event) => { event.preventDefault(); const track = trackRef.current; if (track) track.scrollTo({ left: track.scrollWidth - track.clientWidth, behavior: "smooth" }); }}>Meet the Full Team <ArrowRight size={14} /></a>
   </div></section>;
 }
