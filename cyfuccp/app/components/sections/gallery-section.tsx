@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Photo, SectionHeading } from "../ui";
+import { Photo, SectionHeading } from "../ui";
 import { X } from "lucide-react";
 import { imageUrls } from "../../data/site-content";
 
@@ -26,7 +26,6 @@ export function GallerySection() {
         <Photo src={src} alt={`Community moment ${index + 1}`} />
       </button>)}
     </div>
-    <a href="#gallery" className="text-link align-right">View More Photos <ArrowRight size={15} /></a>
     {activeImage && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Full-screen gallery image" onClick={() => setActiveImage(null)}>
       <button className="gallery-close" type="button" aria-label="Close full-screen image" onClick={() => setActiveImage(null)}><X size={28} /></button>
       <img src={activeImage} alt="Full-screen community moment" onClick={(event) => event.stopPropagation()} />
