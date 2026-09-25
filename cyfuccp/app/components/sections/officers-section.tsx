@@ -19,11 +19,13 @@ export function OfficersSection() {
     let pendingScroll = 0;
     let dragFrame = 0;
     const animate = () => {
-      if (!isPausedRef.current && track.scrollWidth > track.clientWidth) {
-        track.scrollLeft += 1;
-        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 1) track.scrollLeft = 0;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (isPausedRef.current) {
+        frame = requestAnimationFrame(animate);
+      } else if (maxScroll > 0 && track.scrollLeft < maxScroll) {
+        track.scrollLeft = Math.min(track.scrollLeft + 1, maxScroll);
+        frame = requestAnimationFrame(animate);
       }
-      frame = requestAnimationFrame(animate);
     };
     const onPointerDown = (event: globalThis.PointerEvent) => {
       dragging = true;
@@ -58,7 +60,7 @@ export function OfficersSection() {
     track.addEventListener("pointermove", onPointerMove, pointerMoveOptions);
     track.addEventListener("pointerup", onPointerUp);
     track.addEventListener("pointercancel", onPointerUp);
-    const delay = window.setTimeout(animate, 3000);
+    const delay = window.setTimeout(animate, 5000);
     return () => {
       window.clearTimeout(delay);
       cancelAnimationFrame(frame);

@@ -1290,6 +1290,50 @@ body { overflow-x: hidden; font-size: 14px; }
   }
 }
 
+@media(max-width:620px){
+  .events .event-cards-row .event-card {
+    min-height:176px;
+    height:176px;
+    overflow:hidden;
+  }
+  .events .event-cards-row .event-card > .photo {
+    height:82px;
+    aspect-ratio:auto;
+    background-size:cover;
+    background-position:center center;
+  }
+  .events .event-cards-row .event-card > div {
+    height:94px;
+    min-height:94px;
+    padding:8px;
+  }
+  .events .event-cards-row .event-card h3 {
+    margin-bottom:5px;
+    font-size:10px;
+    line-height:1.2;
+  }
+  .events .event-cards-row .event-card p {
+    font-size:8.5px;
+    line-height:1.35;
+  }
+}
+
+/* Hero mobile-only refinement. Desktop and tablet styles remain unchanged. */
+@media(max-width:640px){
+  .hero-final,
+  .hero-final__content,
+  .hero-final__copy { max-width:100%; overflow-x:hidden; }
+  .hero-final__content { padding:32px 22px 24px; }
+  .hero-final .eyebrow { margin-bottom:8px; }
+  .hero-final h1 { margin-bottom:12px; font-size:38px; line-height:1.02; }
+  .hero-final__copy > p { margin-bottom:16px; line-height:1.42; }
+  .hero-final blockquote { margin-bottom:16px; line-height:1.12; }
+  .hero-final .hero-actions { width:100%; gap:10px; }
+  .hero-final .hero-actions .button { width:100%; }
+  .hero-final__visual { width:100%; height:320px; min-height:0; }
+  .hero-final__visual img { width:100%; height:100%; object-fit:cover; }
+}
+
 /* Officers: consistent image proportions and readable labels. */
 .officer-card { display:flex; flex-direction:column; height:100%; }
 .officer-card > .photo {
@@ -1321,4 +1365,9 @@ body { overflow-x: hidden; font-size: 14px; }
 
 @media(max-width:620px){
   .hero-final blockquote { margin-bottom:20px; }
+}
+
+/* Show a small preview of the next officer card on desktop. */
+@media(min-width:901px){
+  .officer-grid .officer-card { flex:0 0 calc((100% - 56px) / 4.25); }
 }
