@@ -13,7 +13,7 @@ export function VisitSection() {
         <a className="contact-line contact-link" href={mapsUrl} target="_blank" rel="noreferrer">
           <MapPin size={18} /><span>United Church of Christ in the Philippines<br />Bacolod City, Negros Occidental</span>
         </a>
-        <a className="contact-line contact-link" href="tel:+63341234567"><Phone size={18} /><span>(034) 123-4567</span></a>
+        <a className="contact-line contact-link" href="tel:+639677636739"><Phone size={18} /><span>09677636739</span></a>
         <a className="contact-line contact-link" href="mailto:cyf.uccpbacolod@gmail.com"><Mail size={18} /><span>cyf.uccpbacolod@gmail.com</span></a>
       </div>
 

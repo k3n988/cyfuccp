@@ -29,7 +29,7 @@ export const officers = [
   ["VICE PRESIDENT", "Marethony Gail Escuadra"],
   ["SECRETARY", "Rea Joy Cabitnoy"],
   ["TREASURER", "Jennieve Endico"],
-  ["AUDITOR", "Auditor"],
+  ["AUDITOR", "Edjalyn Indico"],
   ["PIO", "Khenje Ternal"],
   ["PIO 1", "Wilbert Mijares"],
 ];

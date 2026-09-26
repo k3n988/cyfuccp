@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { ArrowRight, Heart, Music2, BookOpen, Users, CalendarDays, MapPin, Mail, Phone, Quote, Cross, Clock3 } from "lucide-react";
 export const iconFor = (name: string) => ({ book: BookOpen, music: Music2, heart: Heart, users: Users }[name] ?? Heart);
 export { ArrowRight, Heart, Music2, BookOpen, Users, CalendarDays, MapPin, Mail, Phone, Quote, Cross, Clock3 };
 export function SectionHeading({ eyebrow, title, detail }: { eyebrow: string; title: string; detail?: string }) { return <div className="section-heading"><div><span className="eyebrow">{eyebrow}</span><h2>{title}</h2></div>{detail && <p>{detail}</p>}</div>; }
-export function Photo({ src, alt, className = "" }: { src: string; alt: string; className?: string }) { return <div className={`photo ${className}`} style={{ backgroundImage: `url("${src}")` }} role="img" aria-label={alt}/>; }
+export function Photo({ src, alt, className = "" }: { src: string; alt: string; className?: string }) { return <div className={`photo ${className}`} style={{ position: "relative", overflow: "hidden" }}><Image src={src} alt={alt} fill sizes="(max-width: 620px) 90vw, (max-width: 1023px) 45vw, 25vw" style={{ objectFit: "cover", objectPosition: "inherit" }} /></div>; }
 //s

@@ -1,21 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Photo, SectionHeading } from "../ui";
 import { X } from "lucide-react";
 import { imageUrls } from "../../data/site-content";
 
 export function GallerySection() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     if (!activeImage) return;
-    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setActiveImage(null); };
-    document.addEventListener("keydown", closeOnEscape);
+    const dialog = dialogRef.current;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    dialog?.showModal();
     document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("keydown", closeOnEscape);
-      document.body.style.overflow = "";
+      dialog?.close();
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
     };
   }, [activeImage]);
 
@@ -26,9 +31,9 @@ export function GallerySection() {
         <Photo src={src} alt={`Community moment ${index + 1}`} />
       </button>)}
     </div>
-    {activeImage && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Full-screen gallery image" onClick={() => setActiveImage(null)}>
-      <button className="gallery-close" type="button" aria-label="Close full-screen image" onClick={() => setActiveImage(null)}><X size={28} /></button>
-      <img src={activeImage} alt="Full-screen community moment" onClick={(event) => event.stopPropagation()} />
-    </div>}
+    <dialog ref={dialogRef} className="gallery-lightbox" aria-label="Full-screen gallery image" onCancel={() => setActiveImage(null)} onClick={(event) => { if (event.target === event.currentTarget) setActiveImage(null); }}>
+      <button className="gallery-close" type="button" autoFocus aria-label="Close full-screen image" onClick={() => setActiveImage(null)}><X size={28} /></button>
+      {activeImage && <div className="gallery-lightbox-image"><Image src={activeImage} alt={`Community moment ${imageUrls.gallery.indexOf(activeImage) + 1}`} fill sizes="100vw" style={{ objectFit: "contain" }} /></div>}
+    </dialog>
   </section>;
 }
